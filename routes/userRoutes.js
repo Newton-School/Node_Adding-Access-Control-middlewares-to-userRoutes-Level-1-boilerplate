@@ -15,18 +15,21 @@ const { /*...*/ } = require(/*...*/);
 const router = express.Router();
 
 /*
-Add access control middleware to the existing GET and POST routes, as follows: 
-- The getAllUsers route should be accessible to both users and admins.
-- The createUser route should only be accessible to admins.
-- The getUserByID route should be accessible to both users and admins.
+Add access control middleware to the existing GET, POST and DELETE routes, as follows: 
+- The getAllUsers route should be accessible to users, admins and superadmins.
+- The createUser route should only be accessible to admins and superadmins.
+- The getUserByID route should be accessible to user, admins and superadmins.
+- The deleteUser route should be accessible to superadmins only.
+
+possible roles : ['guest', 'user', 'admin', 'superadmin']
 */
 
-// Add the middleware here
+
+// Add the middlewares here
 router.get("/", /*...*/ getAllUsers);
 router.post("/", /*...*/ createUser);
 router.get("/:id", /*...*/ getUserByID);
-
 router.patch("/:id", updateUser);
-router.delete("/:id", deleteUser);
+router.delete("/:id", /*...*/ deleteUser);
 
 module.exports = router;
