@@ -11,7 +11,14 @@
 
 function grantAccessTo(roles) {
     try {
-        // Write your middleware here.
+        /*
+        Write your middleware here.
+        Steps: 
+        - Define a middleware function that takes the request, response, and next function as parameters.
+        - Extract the 'role' from req.body.
+        - Check if the required 'role' is present in the array.
+        - Return a valid response if access cannot be granted.
+        */
     } catch (err) {
         return res.status(400).json({
             status: "error",
